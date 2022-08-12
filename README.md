@@ -13,6 +13,8 @@
 
   <p align="center">
     <a href="https://github.com/Nitya-Pasrija/Gringots-Bank_Simulator">View Demo</a>
+    <br>
+    <a href="https://drive.google.com/file/d/1vcm8MoYfaGdX1rQIYer--ApyaJVJX0zL/view?usp=sharing">Output Screens</a>
   </p>
 </div>
 
@@ -121,8 +123,9 @@ Here are a few Snips taken while the program was running for better understandin
 <img src="images/taskscreen.png" alt="TaskScreen" width="500" height="100">
 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://drive.google.com/file/d/1vcm8MoYfaGdX1rQIYer--ApyaJVJX0zL/view?usp=sharing)_
 
+(Highly recommended to visit this)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

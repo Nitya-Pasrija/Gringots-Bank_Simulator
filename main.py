@@ -11,9 +11,9 @@ db = c.connect(
                                 database="gringots")
 mycursor = db.cursor()
 j=0
-def x():
+def clear_screen():
     system('cls')
-def clear():
+def clear_after_input():
     q = input("Enter anything to continue: ")
     system('cls')
 def sym():
@@ -33,42 +33,42 @@ def intro():
     num1=random.randint(900,99999)
     print("\t\t\t\tUsers online:",num1)
 def calc():
-    x()
+    clear_screen()
     print('''
         Enter 1 for simple intrest
         Enter 2 for compound intrest''')
     aa=int(input("Enter: "))
     if aa==1:
-        x()
+        clear_screen()
         P = float(input("Enter the principal amount : "))
         N = float(input("Enter the number of years : "))
         Rate = float(input("Enter the rate of interest : "))
         SI = (P * N * Rate)/100.
         print("Simple interest : ",SI)
-        clear()
+        clear_after_input()
     elif aa==2:
-        x()
+        clear_screen()
         pamt=float(input("Enter the principal amount : "))
         rate = float(input("Enter the rate of interest : "))
         time = float(input("Enter the number of years : "))
         CI = pamt * (pow((1 + rate / 100), time)) 
         print("Compound interest is", CI)
-        clear()
+        clear_after_input()
 def stock():
     global j
     stock=random.randint(123,789)
     j=stock
     return j
 def terms():
-    x()
+    clear_screen()
     terms=open("FILEE\\terms.txt","r")
     file=terms.read()
     print("The following are the Term and Conditions The bank adheres to:")
     print(file)
     terms.close()
-    clear()
+    clear_after_input()
 def signin():
-    x()
+    clear_screen()
     mycursor.execute("select Acc_No from data")
     acc=mycursor.fetchall()
     mycursor.execute("select Passcode from data")
@@ -102,18 +102,18 @@ def signin():
                 timelapse()
                 print('Welcome,',j,"you have succesfully logged in!" )
                 print("Your current balance is",p[2:-3],"INR.")
-                x()
+                clear_screen()
                 RUN(an)
         else:
-            x()
+            clear_screen()
             print("Incorrect password! Please try agin!")
-            clear()
+            clear_after_input()
     else:
-        x()
+        clear_screen()
         print("Account cannot be found!")
-        clear()
+        clear_after_input()
 def Acreate():
-    x()
+    clear_screen()
     mycursor.execute("select Acc_No from data")
     acc=mycursor.fetchall()
     for i in range(len(acc)):
@@ -142,17 +142,17 @@ def Acreate():
             int1=int(input("Enter the above number here: "))
             if num1!=int1:
                 print("We are sorry to inform you that account cannot be created!")
-                clear()
+                clear_after_input()
             else:
                 password=input("Please enter a password: ")
-                x()
+                clear_screen()
                 terms()
                 print('''
 1. Yes, I have read the terms and conditions and agree to abide by them.
 2. No, I disagree.''')
                 i=input("Please choose one of the following NUMBER:")
                 if i=="1":
-                    x()
+                    clear_screen()
                     c= "insert into data values (%s,%s,%s,%s,%s,%s,%s,%s)"
                     val=(accno,N,P,S,Ad,password,0,0)
                     mycursor.execute(c, val)
@@ -163,40 +163,40 @@ def Acreate():
                     print("Do you want to login to your account?")
                     i1=input("Please type 1 to login or 2 to not continue with the signing in..")
                     if i1=="1":
-                        x()
+                        clear_screen()
                         RUN(accno)
                     else:
-                        x()
+                        clear_screen()
                         print("Signing in terminated!")
-                        clear()
+                        clear_after_input()
                 else:
-                    x()
+                    clear_screen()
                     print("Terms have to be agreed to.")
-                    clear()
+                    clear_after_input()
         else:
-            x()
+            clear_screen()
             print("There is an error in the input.")
-            clear()
+            clear_after_input()
     else:
-        x()
+        clear_screen()
         print("The no of digits in the phone no is not correct!")
-        clear()        
+        clear_after_input()        
 def sayhello():
-    w=["Bonjour!","Hola!","Namastey!","Hello!","Konnichiwa!","Salve!"]
-    print(random.choice(w))
+    place_list=["Bonjour!","Hola!","Namastey!","Hello!","Konnichiwa!","Salve!"]
+    print(random.choice(place_list))
 def timelapse():
         print("Initialising procedure...")
         time.sleep(5)
         print("Procedure successful!")
 def FAQs():
-     x()
+     clear_screen()
      faq=open("FILEE\\faq.txt","r")
      file=faq.read()
      print(file)
      faq.close()
-     clear()
+     clear_after_input()
 def feed(accno):
-    x()
+    clear_screen()
     c1="select Acc_Holder from data where acc_no= (%s)"
     val=[accno]
     mycursor.execute(c1,val)
@@ -209,16 +209,16 @@ def feed(accno):
     fout.write(f)
     fout.close()
     print("Thankyou for your feedback!")
-    clear()
+    clear_after_input()
 def abt():
-    x()
+    clear_screen()
     faq=open("FILEE\\Aboutus.txt","r")
     file=faq.read()
     print(file)
     faq.close()
-    clear()
+    clear_after_input()
 def transact(accno):
-    x()
+    clear_screen()
     t=1
     c = "select Balance from data where Acc_No = (%s)"
     val=[accno]
@@ -232,37 +232,37 @@ def transact(accno):
         print('''Do you want to transact further?''')
         A=str(input("enter yes or no."))
         if A=='yes':
-            x()
+            clear_screen()
             print("Enter 1 to deposit cash and 2 to withdraw:")
-            a=int(input("d/w: "))
+            a=int(input("d/place_list: "))
             if a==1:
-                x()
+                clear_screen()
                 c=int(input("Please enter the cash amt. to be deposited: "))
                 m=int(C)+c
                 print("Your account balance is",m,"INR")
                 C=m
                 t+=1
-                clear()
+                clear_after_input()
             elif a==2:
-                x()
+                clear_screen()
                 c=int(input("Please enter cash to be widrawed"))
                 if c<int(C):
                     m=int(C)-c
                     print("Your account balance is",m,"INR")
                     C=m
                     t+=1
-                    clear()
+                    clear_after_input()
                 elif c>int(C):
-                    x()
+                    clear_screen()
                     print("Acc. bal insufficient.")
                     t+=1
-                    clear()
+                    clear_after_input()
             else:
-                x()
+                clear_screen()
                 print("You entered a wrong value!!!")
-                clear()
+                clear_after_input()
         elif A=='no':
-            x()
+            clear_screen()
             C=m
             c="update data set Balance=%s where Acc_No=%s"
             val=(m,accno)
@@ -270,13 +270,13 @@ def transact(accno):
             db.commit()
             print("Your account balance is",m,"INR")
             print("Happy transactions!")
-            clear()
+            clear_after_input()
             break
         else:
             print("Wrong input!")
-            clear()
+            clear_after_input()
 def choice(accno):
-    x()
+    clear_screen()
     print(''' PLEASE CHOOSE ONE OF THE DETAILS TO BE UPDATED:
 1. Name
 2. Address
@@ -292,7 +292,7 @@ def choice(accno):
     if a3 in [1,2,3,4]:
         updater(accno,a3)
     elif a3==5:
-        x()
+        clear_screen()
         print('''This may take a little time.
 Please wait while we initialise your request.
 Meanwhile, please go through the below provided list for state change.
@@ -305,15 +305,15 @@ Thank you.''')
         val=(n,accno)
         mycursor.execute(c,val)
         timelapse()
-        clear()
+        clear_after_input()
     else:
-        x()
+        clear_screen()
         print("Wrong entry!")
-        clear()
+        clear_after_input()
         
     
 def updater(accno,a3):
-    x()
+    clear_screen()
     l=[0,"Acc_Holder","Address","Contact_No","Passcode"]
     l1a="select "
     l1b=" from data where Acc_No=(%s)"
@@ -336,26 +336,26 @@ def updater(accno,a3):
             db.commit()
             print("Updation successful!")
             print("Updated data input is: ",a)
-            clear()
+            clear_after_input()
         else:
             print("Cancelling updation...")
     else:
         print("Wrong input entered")
-        clear()
+        clear_after_input()
 def delacc(accno):
     print("Do you wish to proceed furthur? Please  note this can't be undone.")
     time.sleep(3)
     a=input("Enter y to continue (Any other response will cancel the deletion procedure): ")
     if a=="y":
-        x()
+        clear_screen()
         cmnd = "delete from data where Acc_no= (%s)"
         val = [accno]
         mycursor.execute(cmnd, val)
         db.commit()
         timelapse()
-        clear()
+        clear_after_input()
 def stockportal(accno):
-    x()
+    clear_screen()
     c = "select Balance from data where Acc_No = (%s)"
     val=[accno]
     mycursor.execute(c,val)
@@ -378,7 +378,7 @@ Please note that value of the stock is subject to market risk. The bank will not
     print("Your current balance is: ",C,"and withheld stock(s) are: ",S)
     n=int(input("Enter your choice here: "))
     if n==1:
-        x()
+        clear_screen()
         stock()
         print("The current stock value is",j,"INR")
         print("Max no. of shares that can be bought at once are 50.")
@@ -401,18 +401,18 @@ Please note that value of the stock is subject to market risk. The bank will not
                     print("Transaction completed successfully!")
                     print("Your account balance is: ",ba,"INR")
                     print("No. of stocks held: ",st)
-                    clear()
+                    clear_after_input()
                 else:
                     print("Insufficient balance!")
-                    clear()
+                    clear_after_input()
             else:
                 print("No transaction was initiated")
-                clear()
+                clear_after_input()
         else:
             print("No transaction was initiated")
-            clear()
+            clear_after_input()
     elif n==2:
-        x()
+        clear_screen()
         stock()
         print("The current stock value is",j,"INR")
         print("Max no. of shares that can be sold at once are 50.")
@@ -434,20 +434,20 @@ Please note that value of the stock is subject to market risk. The bank will not
                 print("Transaction completed successfully!")
                 print("Your account balance is: ",ba,"INR")
                 print("No. of stocks held: ",st)
-                clear()
+                clear_after_input()
             else:
                 print("No transaction was initiated")
-                clear()
+                clear_after_input()
         else:
             print("No transaction was initiated")
-            clear()
+            clear_after_input()
     elif n==3:
             calc()
     else:
             print("An error occured!")
-            clear()
+            clear_after_input()
 def RUN(accno):
-    x()
+    clear_screen()
     print('''
 The following numbers correspond to the tasks. Please  select a number from the given options.
 1. Carry out transactions
@@ -467,13 +467,13 @@ The following numbers correspond to the tasks. Please  select a number from the 
         RUN(accno)
             
     elif i2==3:
-        x()
+        clear_screen()
         print(''' Please choose a number correspondig to your choice
 1. View personal detail portfolio
 2. To edit information''')
         n=int(input("Enter your choice here: "))
         if n==1:
-            x()
+            clear_screen()
             c="select * from data where Acc_no=(%s)"
             val=[accno]
             mycursor.execute(c,val)
@@ -483,18 +483,18 @@ The following numbers correspond to the tasks. Please  select a number from the 
             k=["Account  No: ","Name of account holder: ","Contact number: ","State: ","Address: ","Passcode: ","Current balance","Stocks withheld: "]
             for i in range(len(t)):
                 print(k[i],t[i])
-            clear()
+            clear_after_input()
         elif n==2:
             choice(accno)
         else:
             print("Wrong input entered!")
-            clear()
+            clear_after_input()
         RUN(accno)
     elif i2==4:
         feed(accno)
         RUN(accno)
     elif i2==5:
-        x()
+        clear_screen()
         print('''Please choose a number correspondig to your choice
 1. Read through FAQs
 2. Access terms and conditions
@@ -507,27 +507,27 @@ The following numbers correspond to the tasks. Please  select a number from the 
         elif n==3:
             abt()
         else:
-            x()
+            clear_screen()
             print("An error occured")
-            clear()
+            clear_after_input()
         RUN(accno)
     elif i2==6:
-        x()
+        clear_screen()
         timelapse()
         print("Thankyou  for banking with us. See you soon!")
     elif i2==7:
-        x()
+        clear_screen()
         delacc(accno)
         print("Thankyou for banking with us.")
-        clear()
+        clear_after_input()
     else:
-        x()
+        clear_screen()
         print("A wrong input might have been entered!")
         q = input("Enter anything to go back: ")
         system('cls')
         RUN(accno)
 def AdminIn():
-    x()
+    clear_screen()
     print(''' The number correponds to the task:
 1 To view or edit details
 2 To create or delete an account
@@ -543,14 +543,14 @@ def AdminIn():
         acclst[i]=int(acclst[i])
     j=int(input("Enter your response here: "))
     if j==1:
-        x()
+        clear_screen()
         print('''
 1. To see the list of Account Holders
 2. To view full details of a particular Acc Holder 
 3. To edit information of a particular Account''')
         j1=int(input("Select an option: "))
         if j1==1:
-            x()
+            clear_screen()
             mycursor.execute("select Acc_No, Acc_Holder, Balance,stocks from data")
             l=mycursor.fetchall()
             k=["Account  No: ","Name of account holder: ","Current balance","Stocks withheld: "]
@@ -558,9 +558,9 @@ def AdminIn():
             for i in range(len(t1)):
                 t=list(t1[i])
                 print(k[0],t[0],"     ", k[1],t[1],"      ",k[2],t[2],"       ",k[3],t[3])
-            clear()
+            clear_after_input()
         elif j1==2:
-            x()
+            clear_screen()
             print("Please ensure that the account no is in the following list, ",acclst)
             j2=int(input("Enter account no for which informaion has to be accessed: "))
             if j2 in acclst:
@@ -573,10 +573,10 @@ def AdminIn():
                 k=["Account  No: ","Name of account holder: ","Contact number: ","State: ","Address: ","Passcode: ","Current balance: ","Stocks withheld: "]
                 for i in range(len(k)):
                     print(k[i],t[i])
-                clear()
+                clear_after_input()
             else:
                 print("Account not found")
-                clear()
+                clear_after_input()
         elif j1==3:
             system('cls')
             print("Please ensure that the account no is in the following list, ",acclst)
@@ -592,13 +592,13 @@ def AdminIn():
                 j3=int(input("Enter choice: "))
                 jl=["Acc_No", "Acc_Holder", "Contact_No", "State", "Address", "Passcode"]
                 adminupdate(j3)
-                clear()
+                clear_after_input()
             else:
                 print("Account not found")
-                clear()
+                clear_after_input()
         else:
             print("Wrong input")
-            clear()
+            clear_after_input()
         AdminIn()
     if j==2:
         system('cls')
@@ -625,10 +625,10 @@ def AdminIn():
                 mycursor.execute(c,val)
                 db.commit()
                 timelapse()
-                clear()
+                clear_after_input()
             else:
                 print("There was an error,Admin")
-                clear()
+                clear_after_input()
         elif n==2:
             system('cls')
             print("Please ensure that the account no is in the following list, ",acclst)
@@ -637,10 +637,10 @@ def AdminIn():
                 delacc(j2)
             else:
                 print("Account not found")
-                clear()
+                clear_after_input()
         else:
             print("Wrong input entered!")
-            clear()
+            clear_after_input()
         AdminIn()
     if j==3:
         system('cls')
@@ -649,7 +649,7 @@ def AdminIn():
         for i in range(len(j1)):
             print(j1[i])
         fout.close()
-        clear()
+        clear_after_input()
         AdminIn()
     if j==4:
         system('cls')
@@ -680,7 +680,7 @@ def AdminIn():
         p1=mycursor.fetchall()
         p2=str(p1)
         print("Total cash as of now is, ",p2[2:-3],"INR")
-        clear()
+        clear_after_input()
         AdminIn()
     if j==6:
         system('cls')

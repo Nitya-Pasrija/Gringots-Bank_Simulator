@@ -107,8 +107,26 @@ One should have PyCharm and MySQL installed beforehand.
    
 3. Edit the Administrative Login Information in the __filename.py__ before running it on your desktop. 
 
-4. Create a DataBase named ______ on your MySQL and then create a table using the following command:
-*****code here for table creation
+4. Create a DataBase named "gringots" on your MySQL and then create a table using the following commands:
+
+a.
+```create database gringots;```
+
+b.
+```use gringots;```
+
+c.
+```
+create table data(
+  Acc_No int NOT NULL PRIMARY KEY,
+  Acc_Holder char(40) NOT NULL,
+  Contact_No varchar(20),
+  State char(40),
+  Address varchar(40) NOT NULL,
+  Passcode varchar(30) NOT NULL,
+  Balance int NOT NULL,
+  Stocks varchar(20));
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,7 +164,7 @@ Distributed under the 3 Claused BSD License.
 
 Nitya Pasrija - [@NityaPasrija(Twitter)](https://twitter.com/NityaPasrija) - [LinkedIn](www.linkedin.com/in/nitya-pasrija)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [GitHub](https://github.com/Nitya-Pasrija/Gringots-Bank_Simulatore)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

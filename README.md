@@ -108,13 +108,14 @@ One should have PyCharm and MySQL installed beforehand.
 3. Edit the Administrative Login Information in the __filename.py__ before running it on your desktop. 
 
 4. Create a DataBase named "gringots" on your MySQL and then create a table using the following commands:
+
 a.
 ```create database gringots;```
 
 b.
 ```use gringots;```
 
-c 
+c.
 ```
 create table data(
   Acc_No int NOT NULL PRIMARY KEY,

@@ -150,12 +150,6 @@ _For more examples, please refer to the [Documentation](https://drive.google.com
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the 3 Claused BSD License. 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
